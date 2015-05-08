@@ -1,0 +1,15 @@
+PATHAPP="/opt/webapp/application/app.py &"
+PIDAPP="/var/webapp.pid"
+
+case $1 in 
+        start)
+                echo "starting"
+                $(python $PATHAPP)
+        ;;
+        stop)
+                echo "stoping"
+                PID=$(cat $PIDAPP)
+                kill $PID
+        ;;
+
+esac 

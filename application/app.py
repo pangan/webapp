@@ -1,5 +1,12 @@
+import os
 from flask import Flask
 app = Flask(__name__)
+
+pid = os.getpid()
+op = open("/var/webapp.pid","w")
+op.write("%s" % pid)
+op.close()
+
 
 @app.route('/')
 def hello():
