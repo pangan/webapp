@@ -1,5 +1,8 @@
-PATHAPP="/opt/webapp/application/app.py &"
+PATHAPP="python /opt/webapp/application/app.py &"
 PIDAPP="/var/webapp.pid"
+
+. /etc/init.d/functions
+
 
 case $1 in 
         start)
@@ -11,5 +14,8 @@ case $1 in
                 PID=$(cat $PIDAPP)
                 kill $PID
         ;;
+        test)
+               echo "testing..."
+               daemon $PATHAPP
 
 esac 
